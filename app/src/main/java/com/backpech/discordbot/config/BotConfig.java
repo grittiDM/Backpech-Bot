@@ -1,4 +1,4 @@
-package main.java.com.backpech.discordbot.config;
+package com.backpech.discordbot.config;
 
 import java.io.ObjectInputFilter.Config;
 import java.util.List;

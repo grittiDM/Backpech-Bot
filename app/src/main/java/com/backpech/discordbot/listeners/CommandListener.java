@@ -1,4 +1,4 @@
-package main.java.com.backpech.discordbot.listeners;
+package com.backpech.discordbot.listeners;
 
 import org.jetbrains.annotations.NotNull;
 

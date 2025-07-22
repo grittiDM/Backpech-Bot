@@ -1,4 +1,4 @@
-package main.java.com.backpech.discordbot.commands;
+package com.backpech.discordbot.commands;
 
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 

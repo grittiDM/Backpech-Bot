@@ -1,9 +1,11 @@
-package main.java.com.backpech.discordbot;
+package com.backpech.discordbot;
 
 import com.backpech.discordbot.config.BotConfig;
 import com.backpech.discordbot.commands.CommandManager;
 import com.backpech.discordbot.listeners.CommandListener;
 import com.backpech.discordbot.listeners.WelcomeListener;
+
+import main.java.com.backpech.discordbot.listeners.JamListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
@@ -28,13 +30,15 @@ public class Bot {
         // 3. Instanciar os listeners necessários, injetando as dependências
         WelcomeListener welcomeListener = new WelcomeListener(config);
         CommandListener commandListener = new CommandListener(commandManager);
+        JamListener jamListener = new JamListener();
 
         // 4. Construir o JDA com os listeners e a configuração de Intents
         JDA jda = JDABuilder.createDefault(config.token())
                 .enableIntents(GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_PRESENCES)
                 .addEventListeners(
-                    welcomeListener,
-                    commandListener
+                        welcomeListener,
+                        commandListener,
+                        jamListener
                 )
                 .setActivity(Activity.watching("o servidor com atenção"))
                 .build()
@@ -43,9 +47,8 @@ public class Bot {
         // 5. Registrar/Atualizar os comandos no Discord
         // O CommandManager fornece os dados de todos os comandos registrados
         jda.updateCommands().addCommands(commandManager.getAllCommandsAsData()).queue(
-            success -> System.out.println("Comandos registrados com sucesso!"),
-            error -> System.err.println("Erro ao registrar comandos: " + error)
-        );
+                success -> System.out.println("Comandos registrados com sucesso!"),
+                error -> System.err.println("Erro ao registrar comandos: " + error));
 
         System.out.println("Bot está online e pronto!");
     }

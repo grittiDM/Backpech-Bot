@@ -1,4 +1,4 @@
-package main.java.com.backpech.discordbot.commands;
+package com.backpech.discordbot.commands;
 
 import java.util.Collection;
 import java.util.Map;
@@ -20,12 +20,11 @@ public class CommandManager {
         addCommand(new BanCommand(config));
         addCommand(new MuteCommand(config));
         addCommand(new JamCommand());
-        // Adicione outros comandos aqui...
     }
 
     private void addCommand(ICommand command) {
         if (commands.containsKey(command.getName())) {
-            throw new IllegalArgumentException("Command with name " + command.getName() + " already exists.");
+            throw new IllegalArgumentException("Um Comando chamado: " + command.getName() + ". Já existe.");
         }
         commands.put(command.getName(), command);
     }
