@@ -1,6 +1,7 @@
 # Backpecher - Bot
 
-> [WARNING] Esse projeto foi descontinuado e está sendo substituido pelo seguinte projeto: [Backpecher](https://github.com/Backpech/Backpecher)
+> [!Caution]
+> Esse projeto foi descontinuado e está sendo substituido pelo seguinte projeto: [Backpecher](https://github.com/Backpech/Backpecher)
 
 O motivo pela descontinuidade deste projeto foram as limitações que encontrei no processo de desenvolvimento da aplicação com a Stack antiga, sendo ela:
 
